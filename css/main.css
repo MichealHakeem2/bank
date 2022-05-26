@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+    color: white;
+}
+.home{
+    background-color: #222;
+      color: white;
+      height: 100vh;
+
+}
+.card{
+    background-color: #444;
+      color: white;
+}
+ 
