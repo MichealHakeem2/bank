@@ -1,8 +1,9 @@
 <?php 
 session_start();
 if (isset($_GET['logout'])) {
- session_unset();
- session_destroy();
+  session_destroy();
+  unset($_SESSION['id']);
+  unset($_SESSION['name']);
  header('location: /Bank/registration/login.php');
 }
 $host="localhost";
@@ -86,7 +87,7 @@ $conn = mysqli_connect($host,$user,$password,$dbname);
     </form>
     <?php if($_SESSION['roles'] == 1||$_SESSION['roles'] == 2||$_SESSION['roles'] == 3||$_SESSION['roles'] == 4) : ?>
       <form method="$_POST">
-    <a href="/Bank/index.php" name="logout" class="btn btn-primary" type="submit">Logout</a>
+    <a href="/Bank/index.php" name="logout" class="btn btn-primary">Logout</a>
     </form>
     <?php else :?>
     <a href="/Bank/registration/login.php" class="btn btn-primary" type="submit">Login</a>
