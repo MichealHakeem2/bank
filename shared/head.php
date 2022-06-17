@@ -2,7 +2,7 @@
 $host="localhost";
 $user="root";
 $password='';
-$dbname="hospital";
+$dbname="bank";
 $conn = mysqli_connect($host,$user,$password,$dbname);
 $select= "SELECT * from `theem`";
 $s= mysqli_query($conn , $select);
