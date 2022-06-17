@@ -56,9 +56,9 @@ if (isset($_POST['update'])) {
 <?php endif ; ?>
     <div class="home">
     <?php if($update):?>
-    <h1 class="display-1 text-center text-info">Update Sub_Admins</h1>
+    <h1 class="display-1 text-center text-info">Update Sub Admins</h1>
     <?php else :?>
-    <h1 class="display-1 text-center text-info">Add Sub_Admins</h1>
+    <h1 class="display-1 text-center text-info">Add Sub Admins</h1>
     <?php endif; ?>
   </div>
     <section class="vh-100 bg-image w-800">

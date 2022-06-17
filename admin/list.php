@@ -25,7 +25,7 @@ $sAA = mysqli_query($conn , $selectAddedAdmin);
 <a href="/Bank/sub_admin/list.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
 <?php endif ; ?>
     <div class="home">
-        <h1 class="display-1 text-center text-info">Sub_Admins List</h1>
+        <h1 class="display-1 text-center text-info">Sub Admins List</h1>
     </div>
     <div class="container">
    <div class="card">
