@@ -20,9 +20,9 @@ $selectAddedAdmin = "SELECT sub_admin.id as docID, sub_admin.name as docName, su
 $sAA = mysqli_query($conn , $selectAddedAdmin);
 ?>
 <?php if($noc == '1') : ?>
-<a href="/Bank/sub_admin/list.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
+<a href="/Bank/admin/list.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
 <?php else : ?>
-<a href="/Bank/sub_admin/list.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
+<a href="/Bank/admin/list.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
 <?php endif ; ?>
     <div class="home">
         <h1 class="display-1 text-center text-info">Sub Admins List</h1>
