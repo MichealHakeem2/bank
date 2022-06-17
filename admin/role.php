@@ -16,7 +16,7 @@ if(isset($_POST['send'])){
   $name = $_POST['name'];
   $insert = "INSERT INTO `role` VALUES(null,'$name')";
 $i = mysqli_query($conn , $insert);
-testMessage($i, "Insert admins");
+testMessage($i, "Insert Role");
 }
 $name = '';
 $update = false; 
