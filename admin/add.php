@@ -10,19 +10,19 @@ if(isset($_GET['cha'])){
     $num = $_GET['cha'];
     $update= "UPDATE `theem` SET color = $num";
     $u= mysqli_query($conn , $update);
-    header('location: /Bank/semi-admin/add.php');
+    header('location: /Bank/admin/add.php');
 }
 if(isset($_POST['send'])){
   $name = $_POST['name'];
   $email = $_POST['email'];
 $password = $_POST['password'];
-$insert = "INSERT INTO `semi-admin` VALUES(null,'$name','$email','$password',2)";
+$insert = "INSERT INTO `sub_admin` VALUES(null,'$name','$email','$password',2)";
 $i = mysqli_query($conn , $insert);
-testMessage($i, "Insert semi-admins");
+testMessage($i, "Insert Sub_Admins");
 }
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $delete= "DELETE from `semi-admin` where `id` = $id";
+    $delete= "DELETE from `sub_admin` where `id` = $id";
     $d= mysqli_query($conn , $delete);
 
 }
@@ -33,7 +33,7 @@ $update = false;
 if (isset($_GET['edit'])) {
     $update = true;
     $id = $_GET['edit'];
-    $select = "SELECT * from `semi-admin` where id = $id";
+    $select = "SELECT * from `sub_admin` where id = $id";
     $ss = mysqli_query($conn,$select);
     $row = mysqli_fetch_assoc($ss);
     $name = $row['name'];
@@ -43,24 +43,22 @@ if (isset($_POST['update'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $update= "UPDATE `semi-admin` SET `name` = $name,`email` = $email, `password` = $password where `id` = $id";
+    $update= "UPDATE `sub_admin` SET `name` = $name,`email` = $email, `password` = $password where `id` = $id";
     $u= mysqli_query($conn , $update);
 
 }
 }
-$select= "SELECT * from `categories`";
-$cat= mysqli_query($conn , $select);
 ?>
 <?php if($noc == '1') : ?>
-<a href="/Bank/semi-admin/add.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
+<a href="/Bank/admin/add.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
 <?php else : ?>
-<a href="/Bank/semi-admin/add.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
+<a href="/Bank/admin/add.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
 <?php endif ; ?>
     <div class="home">
     <?php if($update):?>
-    <h1 class="display-1 text-center text-info">Update semi-admins</h1>
+    <h1 class="display-1 text-center text-info">Update Sub_Admins</h1>
     <?php else :?>
-    <h1 class="display-1 text-center text-info">Add semi-admins</h1>
+    <h1 class="display-1 text-center text-info">Add Sub_Admins</h1>
     <?php endif; ?>
   </div>
     <section class="vh-100 bg-image w-800">

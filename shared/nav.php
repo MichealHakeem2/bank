@@ -12,9 +12,7 @@ $dbname="bank";
 $conn = mysqli_connect($host,$user,$password,$dbname);
   $select= "SELECT * from `role`";
   $cat= mysqli_query($conn , $select);
-  // $nr = mysqli_num_rows($cat);
     $row = mysqli_fetch_assoc($cat);
-    // $_SESSION['admin'] = $name;
     $_SESSION['roles'] = $row['id'];
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,13 +32,16 @@ $conn = mysqli_connect($host,$user,$password,$dbname);
           Employees
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Bank/employees/add doc.php">Employeess Add</a>
-      <?php else if($_SESSION['roles'] == 1) : ?>
+          <a class="dropdown-item" href="/Bank/employees/add.php">Employeess Add</a>
+      <?php endif ; ?>
 
-          <a class="dropdown-item" href="/Bank/employees/list doc.php">Employeess List</a>
+      <?php if($_SESSION['roles'] == 1||$_SESSION['roles'] == 2) : ?>
+
+          <a class="dropdown-item" href="/Bank/employees/list.php">Employeess List</a>
         </div>
        </li> 
-      <?php else if($_SESSION['roles'] == 1) : ?>
+      <?php endif ; ?>
+      <?php if($_SESSION['roles'] == 1) : ?>
 
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -65,7 +66,6 @@ $conn = mysqli_connect($host,$user,$password,$dbname);
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Bank/admin/add.php">Sub_Admin Add</a>
           <a class="dropdown-item" href="/Bank/admin/list.php">Sub_Admin List</a>
-          <a class="dropdown-item" href="/Bank/admin/list.php">Roles</a>
         </div>
        </li> 
        <?php else : ?>
@@ -84,7 +84,7 @@ $conn = mysqli_connect($host,$user,$password,$dbname);
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <?php if($_SESSION['roles'] == 1) : ?>
+    <?php if($_SESSION['roles'] == 1||$_SESSION['roles'] == 2||$_SESSION['roles'] == 3||$_SESSION['roles'] == 4) : ?>
       <form method="$_POST">
     <a href="/Bank/index.php" name="logout" class="btn btn-primary" type="submit">Logout</a>
     </form>

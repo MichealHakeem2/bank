@@ -10,7 +10,7 @@ if(isset($_GET['cha'])){
     $num = $_GET['cha'];
     $update= "UPDATE `theem` SET color = $num";
     $u= mysqli_query($conn , $update);
-    header('location: /Bank/admin/add.php');
+    header('location: /Bank/admin/role.php');
 }
 if(isset($_POST['send'])){
   $name = $_POST['name'];
@@ -38,9 +38,9 @@ $select= "SELECT * from `categories`";
 $cat= mysqli_query($conn , $select);
 ?>
 <?php if($noc == '1') : ?>
-<a href="/Bank/admin/add.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
+<a href="/Bank/admin/role.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
 <?php else : ?>
-<a href="/Bank/admin/add.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
+<a href="/Bank/admin/role.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
 <?php endif ; ?>
     <div class="home">
     <?php if($update):?>

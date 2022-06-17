@@ -9,9 +9,9 @@ if(isset($_GET['cha'])){
     $num = $_GET['cha'];
     $update= "UPDATE `theem` SET color = $num";
     $u= mysqli_query($conn , $update);
-    header('location: /tryy/employees/list doc.php');
+    header('location: /Bank/employees/list.php');
 }
-$select= "SELECT employees.id as docID, employees.name as docName, employees.email as docEmail, employees.password as docpassword FROM `employees`";
+$select= "SELECT employees.id as EmpID, employees.name as EmpName, employees.email as EmpEmail, employees.password as Emppassword FROM `employees`";
 $s= mysqli_query($conn , $select);
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
@@ -35,9 +35,9 @@ if (isset($_POST['update'])) {
 }
 ?>
 <?php if($noc == '1') : ?>
-<a href="/tryy/employees/list doc.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
+<a href="/Bank/employees/list.php?cha=2" name="cha" class="btn btn-dark">Dark mood</a>
 <?php else : ?>
-<a href="/tryy/employees/list doc.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
+<a href="/Bank/employees/list.php?cha=1" name="cha" class="btn btn-light">Light mood</a>
 <?php endif ; ?>
     <div class="home">
         <h1 class="display-1 text-center text-info">employeess List</h1>
@@ -55,12 +55,12 @@ if (isset($_POST['update'])) {
       </tr>
       <?php foreach($s as $data){?>
       <tr>
-        <td> <?php echo $data['docID'] ?> </td>
-        <td> <?php echo $data['docName'] ?> </td>
-        <td> <?php echo $data['docEmail'] ?> </td>
-        <td> <?php echo $data['docpassword'] ?> </td>
-        <td><a onclick="return confirm('Are You Sure ? ')" name="delete" href="/list doc.php?delete=<?php echo $data['docID']?>" class="btn btn-danger">Delete</a></td><br>
-        <td><a  name="edit" href="/tryy/employees/add doc.php?edit=<?php echo $data['docID']?>" class="btn btn-info">Edit</a></td>
+        <td> <?php echo $data['EmpID'] ?> </td>
+        <td> <?php echo $data['EmpName'] ?> </td>
+        <td> <?php echo $data['EmpEmail'] ?> </td>
+        <td> <?php echo $data['Emppassword'] ?> </td>
+        <td><a onclick="return confirm('Are You Sure ? ')" name="delete" href="/list.php?delete=<?php echo $data['EmpID']?>" class="btn btn-danger">Delete</a></td><br>
+        <td><a  name="edit" href="/Bank/employees/add.php?edit=<?php echo $data['EmpID']?>" class="btn btn-info">Edit</a></td>
       </tr>
       <?php };?>
     </table>
